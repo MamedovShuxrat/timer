@@ -1,11 +1,9 @@
-import React from 'react'
+const TimerButton = ({ name, onClickCallback }) => {
+  return (
+    <button className="timerButton" onClick={onClickCallback}>
+      {name}
+    </button>
+  );
+};
 
-const TimerButton = ({ name, callbackFn }) => {
-    return (
-        <button className='timerButton' onClick={() => callbackFn()}>
-            {name}
-        </button>
-    )
-}
-
-export default TimerButton
+export default TimerButton;

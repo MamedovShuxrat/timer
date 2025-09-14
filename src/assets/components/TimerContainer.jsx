@@ -1,23 +1,20 @@
-import React from 'react'
-import TimerField from './TimerField'
-import TimerButton from './TimerButton'
+import TimerField from "./TimerField";
+import TimerButton from "./TimerButton";
 
-const TimerContainer = ({ formatTimer }) => {
-    function addToTimer(formatTimer) {
-        console.log(formatTimer);
-        console.log(typeof (formatTimer))
+const TimerContainer = ({
+  formatTimer,
+  onClickCallbackStart,
+  onClickCallbackPause,
+}) => {
+  return (
+    <div>
+      <TimerField value={formatTimer} />
+      <div>
+        <TimerButton name="Старт" onClickCallback={onClickCallbackStart} />
+        <TimerButton name="Пауза" onClickCallback={onClickCallbackPause} />
+      </div>
+    </div>
+  );
+};
 
-    }
-    addToTimer(formatTimer)
-    return (
-        <div>
-            <div >
-                <TimerButton name='+5s' />
-                <TimerButton name='-5s' />
-            </div>
-            <TimerField value={formatTimer} />
-        </div>
-    )
-}
-
-export default TimerContainer
+export default TimerContainer;
