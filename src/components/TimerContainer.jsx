@@ -2,13 +2,13 @@ import TimerField from "./TimerField";
 import TimerButton from "./TimerButton";
 
 const TimerContainer = ({
-  formatTimer,
+  formatTimerDisplay,
   onClickCallbackStart,
   onClickCallbackPause,
 }) => {
   return (
     <div>
-      <TimerField value={formatTimer} />
+      <TimerField value={formatTimerDisplay} />
       <div>
         <TimerButton name="Старт" onClickCallback={onClickCallbackStart} />
         <TimerButton name="Пауза" onClickCallback={onClickCallbackPause} />
