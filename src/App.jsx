@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { formatTimerDisplay } from "./utils/utils";
 import "./App.css";
 import TimerContainer from "./components/TimerContainer";
 const REMAINING_TIME_MS = 5000;
 
 function App() {
   const [timeOfMs, setTimeOfMs] = useState(REMAINING_TIME_MS);
+
   const [isRunning, setIsRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
@@ -35,11 +35,7 @@ function App() {
     <>
       <div>
         <h1>Timer</h1>
-        <TimerContainer
-          formatTimer={formatTimerDisplay(timeOfMs)}
-          onClickCallbackStart={startTimer}
-          onClickCallbackPause={pauseTimer}
-        />
+        <TimerContainer timeOfMs={timeOfMs} onClickCallbackStart={startTimer} onClickCallbackPause={pauseTimer} />
       </div>
     </>
   );

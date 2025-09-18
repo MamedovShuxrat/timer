@@ -1,6 +1,6 @@
 const TimerButton = ({ name, onClickCallback }) => {
   return (
-    <button className="timerButton" onClick={onClickCallback}>
+    <button onClick={onClickCallback}>
       {name}
     </button>
   );
