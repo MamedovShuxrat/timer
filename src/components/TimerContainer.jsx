@@ -1,10 +1,10 @@
 import TimerField from "./TimerField";
 import TimerButton from "./TimerButton";
 
-const TimerContainer = ({ timeOfMs, onClickCallbackStart, onClickCallbackPause }) => {
+const TimerContainer = ({ timerCountdownMs, onClickCallbackStart, onClickCallbackPause }) => {
   return (
     <div>
-      <TimerField value={timeOfMs} />
+      <TimerField value={timerCountdownMs} />
       <div>
         <TimerButton name="Старт" onClickCallback={onClickCallbackStart} />
         <TimerButton name="Пауза" onClickCallback={onClickCallbackPause} />

@@ -1,23 +1,26 @@
 import { useState } from "react";
 import "./App.css";
 import TimerContainer from "./components/TimerContainer";
+import { formatTimerDisplay } from "./utils/utils";
 const REMAINING_TIME_MS = 5000;
 
 function App() {
-  const [timeOfMs, setTimeOfMs] = useState(REMAINING_TIME_MS);
+  const [timerCountdownMs, setTimerCountdownMs] = useState(REMAINING_TIME_MS);
 
-  const [isRunning, setIsRunning] = useState(false);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
+ 
+
 
   function startTimer() {
-    if (isRunning) return;
-    setIsRunning(true);
+    if (isTimerRunning) return;
+    setIsTimerRunning(true);
 
     const id = setInterval(() => {
-      setTimeOfMs((prev) => {
+      setTimerCountdownMs((prev) => {
         if (prev <= 0) {
           clearInterval(id);
-          setIsRunning(false);
+          setIsTimerRunning(false);
           return 0;
         }
         return prev - 10;
@@ -27,17 +30,15 @@ function App() {
     setIntervalId(id);
   }
   function pauseTimer() {
-    setIsRunning(false);
+    setIsTimerRunning(false);
     clearInterval(intervalId);
   }
 
   return (
-    <>
-      <div>
-        <h1>Timer</h1>
-        <TimerContainer timeOfMs={timeOfMs} onClickCallbackStart={startTimer} onClickCallbackPause={pauseTimer} />
-      </div>
-    </>
+    <div>
+      <h1>Timer</h1>
+      <TimerContainer timerCountdownMs={formatTimerDisplay(timerCountdownMs)} onClickCallbackStart={startTimer} onClickCallbackPause={pauseTimer} />
+    </div>
   );
 }
 
