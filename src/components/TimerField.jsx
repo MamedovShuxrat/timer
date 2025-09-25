@@ -1,5 +1,5 @@
 const TimerField = ({ value }) => {
-  return <input type="text" value={value} readOnly />;
-};
+  return <input type="text" value={value} readOnly />
+}
 
-export default TimerField;
+export default TimerField

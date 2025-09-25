@@ -1,7 +1,11 @@
-import TimerField from "./TimerField";
-import TimerButton from "./TimerButton";
+import TimerField from './TimerField'
+import TimerButton from './TimerButton'
 
-const TimerContainer = ({ timerCountdownMs, onClickCallbackStart, onClickCallbackPause }) => {
+const TimerContainer = ({
+  timerCountdownMs,
+  onClickCallbackStart,
+  onClickCallbackPause,
+}) => {
   return (
     <div>
       <TimerField value={timerCountdownMs} />
@@ -10,7 +14,7 @@ const TimerContainer = ({ timerCountdownMs, onClickCallbackStart, onClickCallbac
         <TimerButton name="Пауза" onClickCallback={onClickCallbackPause} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TimerContainer;
+export default TimerContainer

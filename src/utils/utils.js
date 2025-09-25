@@ -1,8 +1,6 @@
-export function formatTimerDisplay(milliseconds) {
-  let second = Math.floor(milliseconds / 1000);
-  let mlSecond = Math.floor((milliseconds % 1000) / 10);
-
-  if (second < 10) second = "0" + second;
-  if (mlSecond < 10) mlSecond = "0" + mlSecond;
-  return `${second}:${mlSecond}`;
+export function formatTimerDisplay(totalMs) {
+  let totalSec = Math.floor(totalMs / 1000).toString()
+  let remainingMS = Math.floor((totalMs % 1000) / 10).toString()
+ 
+  return `${totalSec.padStart(2, 0)}:${remainingMS.padStart(2 , 0)}`
 }
