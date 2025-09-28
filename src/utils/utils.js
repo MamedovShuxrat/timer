@@ -1,6 +1,7 @@
-export function formatTimerDisplay(totalMs) {
-  let totalSec = Math.floor(totalMs / 1000).toString()
-  let remainingMS = Math.floor((totalMs % 1000) / 10).toString()
- 
-  return `${totalSec.padStart(2, 0)}:${remainingMS.padStart(2 , 0)}`
+export function formatTimerDisplay(totalMs, displayDigitCount = 2) {
+  let totalSec = Math.floor(totalMs / 1000) 
+  let remainingMS = Math.floor((totalMs % 1000) / 10) 
+  const leadingZeroFormatter = (str) =>
+    String(str).padStart(displayDigitCount, 0)
+  return `${leadingZeroFormatter(totalSec)}:${leadingZeroFormatter(remainingMS)}`
 }
