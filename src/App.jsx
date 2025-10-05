@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import TimerContainer from './components/TimerContainer'
-import { formatTimerDisplay } from './utils/utils'
+import { formatTimerDisplaySecMS } from './utils/utils'
 const REMAINING_TIME_MS = 5000
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
     <div>
       <h1>Timer</h1>
       <TimerContainer
-        timerCountdownMs={formatTimerDisplay(timerCountdownMs)}
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
         onClickCallbackStart={startTimer}
         onClickCallbackPause={pauseTimer}
       />
