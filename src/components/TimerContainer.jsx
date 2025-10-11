@@ -13,6 +13,10 @@ const TimerContainer = ({
         <TimerButton name="Старт" onClickCallback={onClickCallbackStart} />
         <TimerButton name="Пауза" onClickCallback={onClickCallbackPause} />
       </div>
+      <div  >
+        <TimerButton name="+1s"/>
+        <TimerButton name="-1s"/>
+      </div>
     </div>
   )
 }

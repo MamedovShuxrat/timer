@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TimerContainer from './components/TimerContainer'
 import { formatTimerDisplaySecMS } from './utils/utils'
@@ -8,6 +8,13 @@ function App() {
   const [timerCountdownMs, setTimerCountdownMs] = useState(REMAINING_TIME_MS)
   const [isTimerRunning, setIsTimerRunning] = useState(false)
   const [intervalId, setIntervalId] = useState(null)
+
+  useEffect(() => {
+    const savedTimerData = localStorage.getItem('saveTimerCountsDownMS')
+    if (savedTimerData !== null) {
+      setTimerCountdownMs(Number(savedTimerData))
+    }
+  }, [])
 
   function startTimer() {
     if (isTimerRunning) return
@@ -20,6 +27,7 @@ function App() {
           setIsTimerRunning(false)
           return 0
         }
+        localStorage.setItem('saveTimerCountsDownMS', prev - 10)
         return prev - 10
       })
     }, 10)
@@ -34,6 +42,51 @@ function App() {
   return (
     <div>
       <h1>Timer</h1>
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
+      <TimerContainer
+        timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
+        onClickCallbackStart={startTimer}
+        onClickCallbackPause={pauseTimer}
+      />
       <TimerContainer
         timerCountdownMs={formatTimerDisplaySecMS(timerCountdownMs)}
         onClickCallbackStart={startTimer}
