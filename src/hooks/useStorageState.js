@@ -2,12 +2,8 @@ import { useState, useEffect } from 'react'
 
 export const useStorageState = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
-    const savedTimerData = localStorage.getItem(key)
-    if (savedTimerData !== null) {
-      return Number(savedTimerData)
-    } else {
-      return initialValue
-    }
+    const storageValue = localStorage.getItem(key)
+    return storageValue !== null ? Number(storageValue) : initialValue
   })
   useEffect(() => {
     localStorage.setItem(key, storedValue)

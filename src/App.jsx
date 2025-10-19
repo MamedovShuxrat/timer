@@ -2,14 +2,13 @@ import { useState } from 'react'
 import './App.css'
 import TimerContainer from './components/TimerContainer'
 import { useStorageState } from './hooks/useStorageState'
-
+import { LOCAL_STORAGE_KEY } from './constants/storage'
+import { REMAINING_TIME_MS } from './constants/consfig'
 import { formatTimerDisplaySecMS } from './utils/utils'
-const REMAINING_TIME_MS = 5000
-const LOCAL_STORAGE_KEY = {
-  REMAINING__TIME_MS: 'saveTimerCountsDownMS',
-}
 
 function App() {
+  console.log(REMAINING_TIME_MS ,LOCAL_STORAGE_KEY)
+
   const [timerCountdownMs, setTimerCountdownMs] = useStorageState(
     LOCAL_STORAGE_KEY.REMAINING__TIME_MS,
     REMAINING_TIME_MS
