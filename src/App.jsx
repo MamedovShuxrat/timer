@@ -3,16 +3,15 @@ import './App.css'
 import TimerContainer from './components/TimerContainer'
 import { useStorageState } from './hooks/useStorageState'
 import { LOCAL_STORAGE_KEY } from './constants/storage'
-import { REMAINING_TIME_MS } from './constants/consfig'
+import { REMAINING_TIME_MS } from './constants/config'
 import { formatTimerDisplaySecMS } from './utils/utils'
 
 function App() {
-  console.log(REMAINING_TIME_MS ,LOCAL_STORAGE_KEY)
-
   const [timerCountdownMs, setTimerCountdownMs] = useStorageState(
-    LOCAL_STORAGE_KEY.REMAINING__TIME_MS,
+    LOCAL_STORAGE_KEY.REMAINING_TIME_MS,
     REMAINING_TIME_MS
   )
+
   const [isTimerRunning, setIsTimerRunning] = useState(false)
   const [intervalId, setIntervalId] = useState(null)
 

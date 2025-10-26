@@ -1,1 +1,0 @@
-export const REMAINING_TIME_MS = 5000
