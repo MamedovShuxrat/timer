@@ -1,11 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import TimerContainer from './components/TimerContainer'
+import { useStorageState } from './hooks/useStorageState'
+import { LOCAL_STORAGE_KEY } from './constants/storage'
+import { REMAINING_TIME_MS } from './constants/config'
 import { formatTimerDisplaySecMS } from './utils/utils'
-const REMAINING_TIME_MS = 5000
 
 function App() {
-  const [timerCountdownMs, setTimerCountdownMs] = useState(REMAINING_TIME_MS)
+  const [timerCountdownMs, setTimerCountdownMs] = useStorageState(
+    LOCAL_STORAGE_KEY.REMAINING_TIME_MS,
+    REMAINING_TIME_MS
+  )
+
   const [isTimerRunning, setIsTimerRunning] = useState(false)
   const [intervalId, setIntervalId] = useState(null)
 
